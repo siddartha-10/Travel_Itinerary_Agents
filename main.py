@@ -11,12 +11,12 @@ import requests
 import json
 from tavily import TavilyClient
 
-# model = AzureChatOpenAI(openai_api_version=os.environ.get("AZURE_OPENAI_VERSION", "2023-07-01-preview"),
-#     azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt4chat"),
-#     azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
-#     api_key=os.environ.get("AZURE_OPENAI_KEY"),
-#     temperature=0.3)
-model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
+model = AzureChatOpenAI(openai_api_version=os.environ.get("AZURE_OPENAI_VERSION", "2023-07-01-preview"),
+    azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt4chat"),
+    azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
+    api_key=os.environ.get("AZURE_OPENAI_KEY"),
+    temperature=0.3)
+# model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
 from langchain_groq import ChatGroq
 
 groq = ChatGroq(
@@ -108,6 +108,11 @@ def Hotel_expert_agent(state: AgentState):
     ]).content
     return {"Hotel_expert": best_version}
 
+def save_itinerary_to_md(city_name: str, itinerary: str):
+            filename = f"{city_name.replace(' ', '_').lower()}_itinerary.md"
+            with open(filename, 'w') as file:
+                file.write(itinerary)
+
 TRAVEL_CONCIERGE_PROMPT = """
 Expand this guide into a full travel
 itinerary for this time  with detailed per-day plans, including
@@ -186,6 +191,7 @@ def Travel_Concierge_agent(state: AgentState):
     Hotel_expert = state['Hotel_expert']))
     messages = [system_message, user_message]
     response = model.invoke(messages)
+    save_itinerary_to_md(state['Where_to'], response.content)
     return {"FINAL_DRAFT": response.content}
 
 builder = StateGraph(AgentState)
