@@ -11,13 +11,7 @@ import requests
 import json
 from tavily import TavilyClient
 
-model = AzureChatOpenAI(openai_api_version=os.environ.get("AZURE_OPENAI_VERSION", "2023-07-01-preview"),
-    azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt4chat"),
-    azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
-    api_key=os.environ.get("AZURE_OPENAI_KEY"),
-    temperature=0.3)
-# model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
-
+model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
 tavily = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
 
 from langchain_core.pydantic_v1 import BaseModel
@@ -32,10 +26,11 @@ class AgentState(TypedDict):
     Hotel_expert: str
     Departure_date: str
     Return_date: str
-    Travel_preference: str # This maybe by car, flight etc
-    Travel_expert: str
+    Travel_preference: str
     FINAL_DRAFT: str
 
+# [Include all the agent functions here: Local_expert_agent, Hotel_expert_agent, Travel_expert_agent, Travel_Concierge_agent]
+# [Include all the PROMPT constants here]
 LOCAL_EXPERT_QUERIES_PROMPT = """ You are an expert local guide of . \
 You are living there for almost 15 years \
 Your goal is to generate max of 2 queries such that it will retrieve overview of what \
@@ -56,6 +51,7 @@ def Local_expert_agent(state: AgentState):
     ])
     context = ""
     for q in queries.queries:
+        print(q)
         response = tavily.search(query=q, max_results = 5, include_raw_content = True, include_domains = ["expedia.com"])
         for result in response['results']:
             context = "\n\n ".join(result['raw_content'])
@@ -91,6 +87,7 @@ def Hotel_expert_agent(state: AgentState):
     ])
     context = ""
     for q in queries.queries:
+        print(q)
         response = tavily.search(query=q, max_results = 5, include_raw_content = True, include_domains = ["expedia.com", "booking.com"])
         for result in response['results']:
             context = "\n\n ".join(result['raw_content'])
@@ -241,6 +238,19 @@ builder.add_edge("travel_expert", "travel_concierge")
 builder.add_edge("travel_concierge", END)
 graph = builder.compile()
 
+
+builder = StateGraph(AgentState)
+builder.add_node("local_guide", Local_expert_agent)
+builder.add_node("hotel_expert", Hotel_expert_agent)
+builder.add_node("travel_expert", Travel_expert_agent)
+builder.add_node("travel_concierge", Travel_Concierge_agent)
+builder.set_entry_point("local_guide")
+builder.add_edge("local_guide", "hotel_expert")
+builder.add_edge("hotel_expert", "travel_expert")
+builder.add_edge("travel_expert", "travel_concierge")
+builder.add_edge("travel_concierge", END)
+graph = builder.compile()
+
 def icon(emoji: str):
     """Shows an emoji as a Notion-style page icon."""
     st.write(
@@ -257,12 +267,12 @@ st.set_page_config(
 )
 
 # Title and introduction
-icon("Travel Planner")
+icon("🏖️ VacAIgent")
 st.subheader("Let AI agents plan your next vacation!", divider="rainbow", anchor=False)
 
 # Input form in sidebar
 with st.sidebar:
-    st.header("Trip Details")
+    st.header("👇 Enter your trip details")
     with st.form("travel_form"):
         where_from = st.text_input("Where are you traveling from? 🌍", "")
         where_to = st.text_input("Where are you traveling to? 🏖️", "")
@@ -292,19 +302,18 @@ if submitted:
     else:
         with st.status("🤖 **Agents at work...**", state="running", expanded=True) as status:
             with st.container(height=500, border=False):
-                for s in graph.stream({
+                output = graph.invoke({
                 "Where_from": where_from,
                 "Where_to" : where_to,
                 "Hotel_details": hotel_details,
                 "Departure_date": departure_date,
                 "Return_date": return_date,
                 "Travel_preference": travel_preference,
-                }): 
-                    st.write(s)
+                })
             status.update(label="✅ Trip Plan Ready!", state="complete", expanded=False)
 
         st.subheader("Here is your Trip Plan", anchor=False, divider="rainbow")
-        st.markdown(s['travel_concierge']['FINAL_DRAFT'])
+        st.markdown(output['FINAL_DRAFT'])
 
 if __name__ == "__main__":
     st.markdown("Welcome to the Travel Planner! Provide your travel details in the sidebar, and we'll help you plan your trip.")
