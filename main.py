@@ -1,5 +1,53 @@
 import streamlit as st
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+load_dotenv()
+from langgraph.graph import StateGraph, END, START
+from typing import Annotated, TypedDict, List
+from langchain_openai import AzureChatOpenAI, ChatOpenAI
+from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage, AnyMessage
+import requests
+import json
+from tavily import TavilyClient
+
+model = AzureChatOpenAI(openai_api_version=os.environ.get("AZURE_OPENAI_VERSION", "2023-07-01-preview"),
+    azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt4chat"),
+    azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
+    api_key=os.environ.get("AZURE_OPENAI_KEY"),
+    temperature=0.3)
+
+tavily = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
+
+from langchain_core.pydantic_v1 import BaseModel
+class Queries(BaseModel):
+    queries: List[str]
+
+class AgentState(TypedDict):
+    Where_from: str
+    Where_to: str
+    Local_expert: str
+    Hotel_details: str
+    Hotel_expert: str
+    Departure_date: str
+    Return_date: str
+    Travel_preference: str # This maybe by car, flight etc
+    Travel_expert: str
+    FINAL_DRAFT: str
+
+LOCAL_EXPERT_QUERIES_PROMPT = """ You are an expert local guide of . \
+You are living there for almost 15 years \
+Your goal is to generate max of 2 queries such that it will retrieve overview of what \
+the city has to offer, including hidden gems, cultural hotspots, must-visit landmarks,\
+"""
+LOCAL_EXPERT_PROMPT = """ Your goal is to share the most insightful and interesting details about this place. \
+Use the context given below of the {city} to find about its attractions and \
+customs to provide valuable information that will enrich the travel experience for visitors.\
+
+example output:- 
+1) Time's Square :- This is a great place to walk around at the night times. etc
+......
+"""
 
 # Set the page configuration
 st.set_page_config(
