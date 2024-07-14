@@ -17,14 +17,6 @@ from tavily import TavilyClient
 #     api_key=os.environ.get("AZURE_OPENAI_KEY"),
 #     temperature=0.3)
 model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
-from langchain_groq import ChatGroq
-
-groq = ChatGroq(
-    temperature=0,
-    model="mixtral-8x7b-32768",
-    api_key= os.environ.get("GORQ_API_KEY")
-)
-
 
 tavily = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
 
@@ -56,7 +48,7 @@ example output:-
 ......
 """
 def Local_expert_agent(state: AgentState):
-    queries = groq.with_structured_output(Queries).invoke([
+    queries = model.with_structured_output(Queries).invoke([
         SystemMessage(content=LOCAL_EXPERT_QUERIES_PROMPT),
         HumanMessage(content = state['Where_to']),
     ])
@@ -73,7 +65,7 @@ def Local_expert_agent(state: AgentState):
     return {"Local_expert": best_version}
 HOTEL_EXPERT_QUERIES_PROMPT = """ 
 Generate single search query to find the best hotels that fits the user preferences {user_preferences} in the {city} only. \
-"""
+""" 
 HOTEL_EXPERT_PROMPT = """ Your goal is to share the best hotels that fit the user preference. \
 Use the context given below of the hotels and choose few hotels that better fit the user preference \
 Also also give a single sentence reasoning, why is that hotel better. \
@@ -91,7 +83,7 @@ Important amenities:-
 ......
 """
 def Hotel_expert_agent(state: AgentState):
-    queries = groq.with_structured_output(Queries).invoke([
+    queries = model.with_structured_output(Queries).invoke([
         SystemMessage(content=HOTEL_EXPERT_QUERIES_PROMPT.format(city = state['Where_to'],
         user_preferences = state['Hotel_details'])),
         HumanMessage(content = "\n\n" + "Here is my preferences to finding a hotel "+ state['Hotel_details']),
