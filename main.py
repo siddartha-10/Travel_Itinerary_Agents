@@ -11,12 +11,12 @@ import requests
 import json
 from tavily import TavilyClient
 
-model = AzureChatOpenAI(openai_api_version=os.environ.get("AZURE_OPENAI_VERSION", "2023-07-01-preview"),
-    azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt4chat"),
-    azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
-    api_key=os.environ.get("AZURE_OPENAI_KEY"),
-    temperature=0.3)
-# model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
+# model = AzureChatOpenAI(openai_api_version=os.environ.get("AZURE_OPENAI_VERSION", "2023-07-01-preview"),
+#     azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt4chat"),
+#     azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
+#     api_key=os.environ.get("AZURE_OPENAI_KEY"),
+#     temperature=0.3)
+model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
 from langchain_groq import ChatGroq
 
 groq = ChatGroq(
