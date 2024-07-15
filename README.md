@@ -15,32 +15,25 @@ The Travel Planner application helps users plan their trips by generating detail
 
 - Python 3.8 or higher
 - [Streamlit](https://docs.streamlit.io/)
-- [LangChain](https://langchain-ai.github.io/langgraph/)
-- [Tavily API]([https://www.tavily.com/](https://app.tavily.com/sign-in)) (API Key required)
+- [LangGraph](https://langchain-ai.github.io/langgraph/)
+- [Tavily API](https://app.tavily.com/sign-in) (API Key required)
 
 ## Setup
 
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/your-username/travel-planner.git](https://github.com/siddartha-10/TAVILY_AGENTS.git
+    git clone https://github.com/siddartha-10/TAVILY_AGENTS.git
     cd TAVILY_AGENTS
     ```
 
-2. **Create and activate a virtual environment:**
-
-    ```sh
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
-
-3. **Install the required packages:**
+2. **Install the required packages:**
 
     ```sh
     pip install -r requirements.txt
     ```
 
-4. **Create a `.env` file in the root directory and add your API keys:**
+3. **Create a `.env` file in the root directory and add your API keys:**
 
     ```sh
     AZURE_OPENAI_KEY=your_azure_openai_key
@@ -55,7 +48,7 @@ The Travel Planner application helps users plan their trips by generating detail
 1. **Run the Streamlit application:**
 
     ```sh
-    streamlit run travel_planner/backend/main.py
+    streamlit run main.py
     ```
 
 2. **Fill in the travel details in the sidebar:**
@@ -74,15 +67,6 @@ The Travel Planner application helps users plan their trips by generating detail
 
 Contributions are welcome! If you have any ideas or improvements, feel free to submit a pull request. Please ensure that your changes are well-documented and covered by tests.
 
-### Steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -90,5 +74,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [OpenAI](https://openai.com/) for the language models.
-- [Tavily](https://www.tavily.com/) for the travel data.
+- [Tavily](https://www.tavily.com/) for the data.
 - [Streamlit](https://streamlit.io/) for the easy-to-use interface.
