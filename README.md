@@ -23,7 +23,7 @@ The Travel Planner application helps users plan their trips by generating detail
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/your-username/travel-planner.git](https://github.com/siddartha-10/TAVILY_AGENTS.git
+    git clone [https://github.com/your-username/travel-planner.git](https://github.com/siddartha-10/TAVILY_AGENTS.git
     cd TAVILY_AGENTS
     ```
 
@@ -74,5 +74,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [OpenAI](https://openai.com/) for the language models.
-- [Tavily](https://www.tavily.com/) for the travel data.
+- [Tavily](https://www.tavily.com/) for the data.
 - [Streamlit](https://streamlit.io/) for the easy-to-use interface.
