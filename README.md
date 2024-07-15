@@ -24,8 +24,8 @@ results.
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/siddartha-10/TAVILY_AGENTS.git
-    cd TAVILY_AGENTS
+    git clone https://github.com/siddartha-10/Travel_Itinerary_Agents.git
+    cd Travel_Itinerary_Agents
     ```
 
 2. **Install the required packages:**
@@ -34,7 +34,7 @@ results.
     pip install -r requirements.txt
     ```
 
-3. **Create a `.env` file in the root directory and add your API keys:**
+3. **Edit the `.env_example` file in the root directory and add your API keys:**
 
     ```sh
     AZURE_OPENAI_KEY=your_azure_openai_key
