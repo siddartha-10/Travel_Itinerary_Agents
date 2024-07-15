@@ -23,7 +23,7 @@ The Travel Planner application helps users plan their trips by generating detail
 1. **Clone the repository:**
 
     ```sh
-    git clone [https://github.com/your-username/travel-planner.git](https://github.com/siddartha-10/TAVILY_AGENTS.git
+    git clone https://github.com/siddartha-10/TAVILY_AGENTS.git
     cd TAVILY_AGENTS
     ```
 
