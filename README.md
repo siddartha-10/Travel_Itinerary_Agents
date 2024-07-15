@@ -38,8 +38,9 @@ The Travel Planner application helps users plan their trips by generating detail
     ```sh
     AZURE_OPENAI_KEY=your_azure_openai_key
     AZURE_OPENAI_VERSION=2023-07-01-preview
-    AZURE_OPENAI_DEPLOYMENT=gpt4chat
-    AZURE_OPENAI_ENDPOINT=https://gpt-4-trails.openai.azure.com/
+    AZURE_OPENAI_DEPLOYMENT=your-deployment-name
+    AZURE_OPENAI_ENDPOINT=your-end-point
+    OPENAI_API_KEY=your-openai-api_key
     TAVILY_API_KEY=your_tavily_api_key
     ```
 

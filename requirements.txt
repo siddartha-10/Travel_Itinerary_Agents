@@ -1,0 +1,8 @@
+streamlit
+python-dotenv
+langgraph
+langchain_openai
+langchain_core
+requests
+tavily-python
+typing
