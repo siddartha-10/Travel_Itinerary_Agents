@@ -3,11 +3,11 @@
 
 ## Description
 
-The Travel Planner application helps users plan their trips by generating detailed itineraries based on their travel details. The backend utilizes LangChain and Tavily API to fetch relevant travel information and generate comprehensive travel plans. The frontend is built using Streamlit, providing an easy-to-use interface for users to input their travel details.
+The Travel Planner application helps users plan their trips by generating detailed itineraries based on their travel details. The backend utilizes LangGraph and Tavily API to fetch relevant travel information and generate comprehensive travel plans. The frontend is built using Streamlit, providing an easy-to-use interface for users to input their travel details.
 
 ## Features
 
-- Generates detailed travel itineraries with daily schedules, weather forecasts, packing suggestions, and budget breakdowns.
+- Generates detailed travel itineraries with daily schedules,and packing suggestions.
 - Provides information on local attractions and hotels based on user preferences.
 - Saves the generated itinerary as a Markdown file.
 
@@ -15,16 +15,16 @@ The Travel Planner application helps users plan their trips by generating detail
 
 - Python 3.8 or higher
 - [Streamlit](https://docs.streamlit.io/)
-- [LangChain](https://langchain.readthedocs.io/)
-- [Tavily API](https://www.tavily.com/) (API Key required)
+- [LangChain](https://langchain-ai.github.io/langgraph/)
+- [Tavily API]([https://www.tavily.com/](https://app.tavily.com/sign-in)) (API Key required)
 
 ## Setup
 
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/your-username/travel-planner.git
-    cd travel-planner
+    git clone https://github.com/your-username/travel-planner.git](https://github.com/siddartha-10/TAVILY_AGENTS.git
+    cd TAVILY_AGENTS
     ```
 
 2. **Create and activate a virtual environment:**
