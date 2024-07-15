@@ -1,153 +1,98 @@
-# 9-Day Miami Itinerary
+# 15-Day Miami Travel Itinerary
 
-## Day 1: Arrival and Exploring the City
+## Day 1: Arrival in Miami
 **Weather Forecast**: High of 88°F, Low of 78°F. Partly cloudy with a chance of afternoon showers.
 
-**Morning**:
-- Arrival from Atlanta to Miami.
-- Check-in at the Hampton Inn & Suites by Hilton Miami Brickell Downtown.
+### Morning
+- Arrive in Miami from Atlanta.
+- Check into Soho Beach House, opting for the **Big Ocean Plus** room for its stunning beach views and luxurious amenities.
 
-**Afternoon**:
-- Lunch at Versailles Restaurant in Little Havana, known for its authentic Cuban cuisine.
-- Explore Little Havana, the heart of Miami's Cuban community, and immerse yourself in the vibrant culture. Visit the local cigar shops and art galleries.
+### Afternoon
+- Lunch at **Versailles Restaurant** in Little Havana for an authentic Cuban culinary experience.
+- Begin exploring Little Havana, starting with a stroll down **Calle Ocho** to soak in the vibrant street life and culture.
 
-**Evening**:
-- Enjoy a stroll around the Art Deco Historic District with its historic architecture from the 1920s and 1930s.
-- Dinner at Joe's Stone Crab, a famous seafood restaurant in South Beach.
-- Experience Miami's nightlife in South Beach. Visit The Clevelander Bar for a fun and vibrant experience.
+### Evening
+- Dinner at **Ball & Chain**, enjoy live salsa music and a vibrant atmosphere.
+- Return to the hotel for some rest.
 
-**What to Pack**: Swimwear, sunscreen, light clothing, comfortable walking shoes, a light rain jacket (just in case of showers), and a camera.
+**What to Pack**: Casual wear, comfortable shoes, a light jacket, and a camera.
 
-## Day 2: South Beach and Wynwood Walls
-**Weather Forecast**: High of 89°F, Low of 78°F. Mostly sunny.
+## Day 2: Exploring Little Havana
+**Weather Forecast**: High of 89°F, Low of 77°F. Sunny.
 
-**Morning**:
+### Morning
 - Breakfast at the hotel.
-- Spend the morning at South Beach, soaking up the sun and enjoying the clear waters.
+- Visit the **Bay of Pigs Museum** to learn about its historical significance.
 
-**Afternoon**:
-- Lunch at Mango's Tropical Cafe, a lively restaurant offering Latin American cuisine.
-- Visit the Wynwood Walls, an outdoor museum showcasing large-scale works by some of the world’s best-known street artists.
+### Afternoon
+- Lunch at a local café, trying out Cuban sandwiches.
+- Spend time at **Domino Park**, watching local games and interacting with residents.
 
-**Evening**:
-- Dinner at KYU, a trendy Asian fusion restaurant in Wynwood.
-- Explore the nightlife in Wynwood, known for its hip bars and clubs.
+### Evening
+- Explore more of Calle Ocho, checking out local shops and art galleries.
+- Dinner at a local Cuban restaurant, trying out different culinary delights.
 
-**What to Pack**: Beachwear, sunscreen, comfortable shoes, casual clothes for the evening, and a camera.
+**What to Pack**: Comfortable walking shoes, sunscreen, hat, and a light backpack.
 
-## Day 3: Vizcaya Museum and Gardens & Bayside Marketplace
+## Day 3: Beach Day and Relaxation
+**Weather Forecast**: High of 90°F, Low of 79°F. Mostly sunny.
+
+### Morning
+- Breakfast at the hotel.
+- Head to Miami Beach for a day of sun and sand.
+
+### Afternoon
+- Enjoy beach activities: swimming, sunbathing, and beach volleyball.
+- Lunch at a beachside café.
+
+### Evening
+- Return to the hotel to freshen up.
+- Dinner at a seafood restaurant overlooking the ocean.
+
+**What to Pack**: Swimwear, beach towel, sunscreen, sunglasses, and flip-flops.
+
+## Day 4-14: Exploring Greater Miami and Surroundings
+**Activities Include**:
+- Visit the Miami Seaquarium, Zoo Miami, and the Vizcaya Museum and Gardens.
+- Day trips to the Everglades for airboat tours and wildlife viewing.
+- Shopping days at Dolphin Mall and Miami Design District.
+- Explore the Wynwood Walls and Miami's modern art scene.
+- Enjoy various cuisines at renowned Miami restaurants.
+
+**Daily Weather Forecast**: Averages around High of 88°F, Low of 78°F, with occasional afternoon showers.
+
+**What to Pack**: Depending on activities: appropriate gear for outings (e.g., hiking shoes for Everglades), casual and evening wear, camera, and daypack.
+
+## Day 15: Departure
 **Weather Forecast**: High of 88°F, Low of 78°F. Partly cloudy.
 
-**Morning**:
+### Morning
 - Breakfast at the hotel.
-- Visit the Vizcaya Museum and Gardens, an Italian Renaissance-style villa filled with European furniture and decorative arts.
+- Last-minute shopping or a walk along the beach.
 
-**Afternoon**:
-- Lunch at Bubba Gump Shrimp Co. at Bayside Marketplace.
-- Spend the afternoon shopping and exploring the Bayside Marketplace.
+### Afternoon
+- Check out from the hotel.
+- Depart from Miami to Atlanta.
 
-**Evening**:
-- Dinner at Hard Rock Cafe Miami.
-- Enjoy a relaxing evening at the hotel.
+**What to Pack**: Travel documents, souvenirs, and memories of a fantastic trip!
 
-**What to Pack**: Comfortable shoes, casual clothes, a hat, and a camera.
+---
 
-## Day 4: Everglades National Park
-**Weather Forecast**: High of 90°F, Low of 78°F. Mostly sunny.
+### Additional Information
 
-**Morning**:
-- Breakfast at the hotel.
-- Take a day trip to Everglades National Park. Explore the park on an airboat tour.
+**Hotels**:
+- **Soho Beach House**: Chosen for its luxurious amenities and stunning ocean views, providing a relaxing and upscale lodging experience.
 
-**Afternoon**:
-- Enjoy a packed lunch in the park.
-- Continue exploring the Everglades.
+**Transportation**:
+- Rental car recommended for flexibility in exploring greater Miami and surrounding areas.
+- Public transportation and rideshare options are also available for convenience.
 
-**Evening**:
-- Return to Miami.
-- Dinner at The Capital Grille, a high-end steakhouse in Brickell.
+**Budget Breakdown** (Estimates):
+- Accommodation: $400 per night x 14 nights = $5,600
+- Meals: $100 per day x 15 days = $1,500
+- Activities & Entrance Fees: $500
+- Transportation (Rental Car): $50 per day x 15 days = $750
+- Miscellaneous (Shopping, etc.): $650
+- **Total Estimated Cost**: $9,000
 
-**What to Pack**: Comfortable shoes, hat, sunglasses, sunscreen, insect repellent, and a camera.
-
-## Day 5: Miami Seaquarium & Key Biscayne
-**Weather Forecast**: High of 89°F, Low of 78°F. Partly cloudy.
-
-**Morning**:
-- Breakfast at the hotel.
-- Visit the Miami Seaquarium.
-
-**Afternoon**:
-- Lunch at Rusty Pelican, a waterfront restaurant on Key Biscayne.
-- Explore Key Biscayne and its beautiful sandy beaches.
-
-**Evening**:
-- Dinner at Lightkeepers, a modern coastal cuisine restaurant in Key Biscayne.
-- Return to the hotel.
-
-**What to Pack**: Swimwear, sunscreen, comfortable shoes, casual clothes, and a camera.
-
-## Day 6: Coral Castle & Relaxation
-**Weather Forecast**: High of 88°F, Low of 78°F. Partly cloudy.
-
-**Morning**:
-- Breakfast at the hotel.
-- Visit Coral Castle, a stone structure created by the Latvian American eccentric Edward Leedskalnin.
-
-**Afternoon**:
-- Lunch at Shiver's BBQ, a well-known barbecue restaurant in Homestead.
-- Spend the afternoon relaxing at the hotel or exploring the Brickell neighborhood.
-
-**Evening**:
-- Dinner at Komodo, a three-story indoor/outdoor eatery and lounge in the Brickell neighborhood.
-
-**What to Pack**: Comfortable shoes, casual clothes, a hat, and a camera.
-
-## Day 7: Free Day
-**Weather Forecast**: High of 89°F, Low of 78°F. Mostly sunny.
-
-**Morning**:
-- Breakfast at the hotel.
-- Free day to explore Miami at your own pace. You could revisit your favorite spots or discover new ones.
-
-**Afternoon**:
-- Lunch at a restaurant of your choice.
-
-**Evening**:
-- Dinner at a restaurant of your choice.
-
-**What to Pack**: Depending on your plans for the day.
-
-## Day 8: Departure
-**Morning**:
-- Breakfast at the hotel.
-- Check out of the hotel.
-- Departure from Miami to Atlanta.
-
-**What to Pack**: All your belongings.
-
-# Hotels:
-1. Hampton Inn & Suites by Hilton Miami Brickell Downtown: $150 per night x 7 nights = $1050
-
-# Transportation:
-1. Flight from Atlanta to Miami: $200 (round trip)
-2. Uber/taxi for transportation within Miami: $30 per day x 7 days = $210
-
-# What to Pack:
-1. Swimwear
-2. Sunscreen
-3. Light clothing
-4. Comfortable walking shoes
-5. A light rain jacket
-6. A camera
-7. Hat and sunglasses
-8. Insect repellent (for the Everglades)
-
-# Budget Breakdown:
-1. Hotels: $1050
-2. Flights: $200
-3. Transportation: $210
-4. Meals: $50 per day x 7 days = $350
-5. Entrance fees for attractions: $150
-6. Miscellaneous (shopping, extra expenses): $200
-
-**Total: $2160**
+This itinerary offers a comprehensive exploration of Miami, balancing cultural immersion in Little Havana with relaxation and diverse activities across the city, ensuring an unforgettable travel experience.
