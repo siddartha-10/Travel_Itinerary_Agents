@@ -3,7 +3,8 @@
 
 ## Description
 
-The Travel Planner application helps users plan their trips by generating detailed itineraries based on their travel details. The backend utilizes LangGraph and Tavily API to fetch relevant travel information and generate comprehensive travel plans. The frontend is built using Streamlit, providing an easy-to-use interface for users to input their travel details.
+The Travel Planner application helps users plan their trips by generating detailed itineraries based on their travel details. The backend utilizes LangGraph and Tavily API to fetch relevant travel information and generate travel plans. The frontend is built using Streamlit, providing an easy-to-use interface for users to input their travel details. The fun part is along the way you can also see the outputs of search
+results.
 
 ## Features
 
@@ -64,9 +65,13 @@ The Travel Planner application helps users plan their trips by generating detail
 
 4. **The generated itinerary will be displayed on the main page and saved as a Markdown file named `{city_name}_itinerary.md` in the root directory.**
 
-## Contribution
+## Futher Improvements to be made
 
-Contributions are welcome! If you have any ideas or improvements, feel free to submit a pull request. Please ensure that your changes are well-documented and covered by tests.
+1) Speed up.
+2) Improve the UI/UX.
+3) Add human in the loop to see the user is happy and based on that build a plan.
+3) Include the Transportation details as well(ex:- [Notebook](examples/langgraph_solo.ipynb) something very close to the final output of the notebook give transport details).
+4) Turn this into the ultimate travel planning app.
 
 ## License
 
