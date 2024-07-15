@@ -5,6 +5,7 @@ load_dotenv()
 from langgraph.graph import StateGraph, END, START
 from typing import Annotated, TypedDict, List
 from langchain_openai import AzureChatOpenAI, ChatOpenAI
+from langchain_core.pydantic_v1 import BaseModel
 from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage, AnyMessage
 import requests
 import json
@@ -15,15 +16,13 @@ from tavily import TavilyClient
 #     azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
 #     api_key=os.environ.get("AZURE_OPENAI_KEY"),
 #     temperature=0.3)
-model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')
+model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')  # openai model
+tavily = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY")) # tavily 
 
-tavily = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY"))
-
-from langchain_core.pydantic_v1 import BaseModel
-class Queries(BaseModel):
+class Queries(BaseModel):  # This is class will help in storing all the queries generated
     queries: List[str]
 
-class AgentState(TypedDict):
+class AgentState(TypedDict): # This is class stores the agentstates.
     Where_from: str
     Where_to: str
     Local_expert: str
@@ -32,6 +31,10 @@ class AgentState(TypedDict):
     Departure_date: str
     Return_date: str
     FINAL_DRAFT: str
+
+########################################################################
+# PROMPTS
+########################################################################
 
 LOCAL_EXPERT_QUERIES_PROMPT = """ You are an expert local guide of . \
 You are living there for almost 15 years \
@@ -46,22 +49,6 @@ example output:-
 1) Time's Square :- This is a great place to walk around at the night times. etc
 ......
 """
-def Local_expert_agent(state: AgentState):
-    queries = model.with_structured_output(Queries).invoke([
-        SystemMessage(content=LOCAL_EXPERT_QUERIES_PROMPT),
-        HumanMessage(content = state['Where_to']),
-    ])
-    context = ""
-    for q in queries.queries:
-        print(q)
-        response = tavily.search(query=q, max_results = 3, include_raw_content = True, include_domains = ["expedia.com"])
-        for result in response['results']:
-            context = "\n\n ".join(result['raw_content'])
-    best_version = model.invoke([
-        SystemMessage(content=LOCAL_EXPERT_PROMPT.format(city = state['Where_to'])),
-        HumanMessage(content = context),
-    ]).content
-    return {"Local_expert": best_version}
 HOTEL_EXPERT_QUERIES_PROMPT = """ 
 Generate single search query to find the best hotels that fits the user preferences {user_preferences} in the {city} only. \
 """ 
@@ -81,29 +68,6 @@ Important amenities:-
 2) spa .....etc
 ......
 """
-def Hotel_expert_agent(state: AgentState):
-    queries = model.with_structured_output(Queries).invoke([
-        SystemMessage(content=HOTEL_EXPERT_QUERIES_PROMPT.format(city = state['Where_to'],
-        user_preferences = state['Hotel_details'])),
-        HumanMessage(content = "\n\n" + "Here is my preferences to finding a hotel "+ state['Hotel_details']),
-    ])
-    context = ""
-    for q in queries.queries:
-        print(q)
-        response = tavily.search(query=q, max_results = 3, include_raw_content = True)
-        for result in response['results']:
-            context = "\n\n ".join(result['raw_content'])
-    best_version = model.invoke([
-        SystemMessage(content=HOTEL_EXPERT_PROMPT.format(hotels = context, city = state['Where_to'])),
-        HumanMessage(content="Pick the best hotels based on the preference: " + state['Hotel_details']),
-    ]).content
-    return {"Hotel_expert": best_version}
-
-def save_itinerary_to_md(city_name: str, itinerary: str):
-            filename = f"{city_name.replace(' ', '_').lower()}_itinerary.md"
-            with open(filename, 'w') as file:
-                file.write(itinerary)
-
 TRAVEL_CONCIERGE_PROMPT = """
 Expand this guide into a full travel
 itinerary for this time  with detailed per-day plans, including
@@ -137,23 +101,18 @@ Here are the hotels {Hotel_expert}
 example:-
 
 Day 1: Arrival and Exploring the City
-Weather Forecast: High of 88°F, Low of 78°F. Partly cloudy with a chance of afternoon showers.
-
+Weather Forecast: ......
 Morning:
 Arrival from India to Miami via your selected flight option. (Travel Plan Option 1)
-Check-in at the Hampton Inn & Suites by Hilton Miami Brickell Downtown.
+Check-in at the hotel
 Afternoon:
-
-Lunch at Versailles Restaurant in Little Havana, known for its authentic Cuban cuisine.
-Explore Little Havana, the heart of Miami's Cuban community, and immerse yourself in the vibrant culture. Visit the local cigar shops and art galleries.
+Lunch at xyz restaurent
+Explore Little Havana,
 Evening:
-
-Enjoy a stroll around the Art Deco Historic District with its historic architecture from the 1920s and 1930s.
-Dinner at Joe's Stone Crab, a famous seafood restaurant in South Beach.
-Experience Miami's nightlife in South Beach. Visit The Clevelander Bar for a fun and vibrant experience.
+Enjoy a stroll around the Art Deco
+Dinner at xyz place
 
 What to Pack: Swimwear, sunscreen, light clothing, comfortable walking shoes, a light rain jacket (just in case of showers), and a camera.
-
 
 The example of Day 1 should continue for rest of the days and what to pack depends upon that days sechdule and where
 we are going.
@@ -162,15 +121,57 @@ Hotels:-
 1_ .....
 2) ....
 
-Transportation:-
-2) .....
-3) .....
-
 What to pack:-
 1) ......
 2) .....
 
 """
+
+########################################################################
+# AGENTS
+########################################################################
+
+def Local_expert_agent(state: AgentState):
+    queries = model.with_structured_output(Queries).invoke([
+        SystemMessage(content=LOCAL_EXPERT_QUERIES_PROMPT),
+        HumanMessage(content = state['Where_to']),
+    ])
+    context = ""
+    for q in queries.queries:
+        print(q)
+        response = tavily.search(query=q, max_results = 3, include_raw_content = True, include_domains = ["expedia.com"])
+        for result in response['results']:
+            context = "\n\n ".join(result['raw_content'])
+    best_version = model.invoke([
+        SystemMessage(content=LOCAL_EXPERT_PROMPT.format(city = state['Where_to'])),
+        HumanMessage(content = context),
+    ]).content
+    return {"Local_expert": best_version}
+
+def Hotel_expert_agent(state: AgentState):
+    queries = model.with_structured_output(Queries).invoke([
+        SystemMessage(content=HOTEL_EXPERT_QUERIES_PROMPT.format(city = state['Where_to'],
+        user_preferences = state['Hotel_details'])),
+        HumanMessage(content = "\n\n" + "Here is my preferences to finding a hotel "+ state['Hotel_details']),
+    ])
+    context = ""
+    for q in queries.queries:
+        print(q)
+        response = tavily.search(query=q, max_results = 3, include_raw_content = True)
+        for result in response['results']:
+            context = "\n\n ".join(result['raw_content'])
+    best_version = model.invoke([
+        SystemMessage(content=HOTEL_EXPERT_PROMPT.format(hotels = context, city = state['Where_to'])),
+        HumanMessage(content="Pick the best hotels based on the preference: " + state['Hotel_details']),
+    ]).content
+    return {"Hotel_expert": best_version}
+
+def save_itinerary_to_md(city_name: str, itinerary: str):
+            filename = f"{city_name.replace(' ', '_').lower()}_itinerary.md"
+            with open(filename, 'w') as file:
+                file.write(itinerary)
+
+
 def Travel_Concierge_agent(state: AgentState):
     user_message = HumanMessage(
         content = f"""The above are my travel plans from {state['Where_from']} to {state['Where_to']} Provide me
