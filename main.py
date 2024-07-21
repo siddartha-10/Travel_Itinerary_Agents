@@ -16,7 +16,7 @@ from tavily import TavilyClient
 #     azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://gpt-4-trails.openai.azure.com/"),
 #     api_key=os.environ.get("AZURE_OPENAI_KEY"),
 #     temperature=0.3)
-model = ChatOpenAI(temperature=0.3, model='gpt-4-turbo')  # openai model
+model = ChatOpenAI(temperature=0.3, model='gpt-4o-mini')  # openai model
 tavily = TavilyClient(api_key=os.environ.get("TAVILY_API_KEY")) # tavily 
 
 class Queries(BaseModel):  # This is class will help in storing all the queries generated
